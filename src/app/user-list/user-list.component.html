@@ -1,0 +1,53 @@
+<form class="form-inline">
+
+    <div class="jumbotron">
+        <h4>Lista På Alla användare som är Registrerad </h4>      
+        <input class="form-control" name="searchInput" placeholder="sök användare på dera föranamn" #searchInput="ngModel" [(ngModel)]="searchText" style="width: 80%;">
+      </div>
+ 
+      <div class="alert alert-danger" *ngIf="showDeletedMessage">
+          Deleted successfully.
+        </div> 
+</form>
+
+
+
+  
+  <div *ngFor="let user of userArray"  class="dashbord">
+    <div class="" *ngIf="filterCondition(user)">
+
+
+        <div class="row d-inline">
+             
+        <div class="card " >
+            <div class="box">
+                <div class="img">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRV0I6VDKQ3vmT9y2QFvx7UZ4aTK_HZUbbHyIvmr_sgoa3sIBB6cg">
+                </div>
+                <h2>{{user.firstName}} 
+                   
+                  <br>
+                     <span>{{user.campanyName}}</span></h2>
+
+                  <div>{{user.email}}</div>
+                  <div>{{user.mobile}}</div>
+                   
+                  <div>{{user.homeTown}}</div>
+                
+                <button class="btn btn-outline-info" (click)="userService.PopulateForm(user)">Edit</button>
+          <button class="btn btn-outline-danger" (click)="onDelete(user.$key)">Delete</button>
+            </div>
+        </div>
+
+ 
+
+      
+      
+      
+        
+        </div> 
+        
+      </div>
+    </div>
+
+ 

@@ -1,0 +1,71 @@
+<div class="row">
+  <div class="col-lg-12  text-center">
+    
+    <form [formGroup]="this.userService.form" (ngSubmit)="onSubmit()"   >
+
+
+      <input type="hidden" formControlName="$key">
+      <div class="form-group"  >
+         
+
+
+        <input formControlName="firstName" placeholder=" Enter First Name" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.firstName.errors}">
+        <div class="invalid-feedback" *ngIf="submitted && formControls.firstName.errors">
+          This field is required.</div>
+
+
+     
+
+       
+        
+        <input formControlName="lastName" class="form-control"    placeholder=" Enter Last Name " >
+         
+       
+
+
+
+  
+        <input formControlName="email" class="form-control"  placeholder=" Enter email" [ngClass]="{'is-invalid':submitted && formControls.email.errors}">
+        <div class="invalid-feedback" *ngIf="submitted && formControls.email.errors">
+          Invalid email address.</div>
+       
+      
+     
+        <input formControlName="mobile" class="form-control"   placeholder="Enter Mobile Number " [ngClass]="{'is-invalid':submitted && formControls.mobile.errors}">
+        <div class="invalid-feedback" *ngIf="submitted && formControls.mobile.errors">
+          <label *ngIf="formControls.mobile.errors.required">This field is required.</label>
+          <label *ngIf="formControls.mobile.errors.minlength">Atleast 8 numbers.</label>
+        </div>
+       
+
+
+       
+     
+        <input formControlName="campanyName" class="form-control"   placeholder="Enter Campany Name ">
+       
+
+      
+        
+        <input formControlName="homeTown" class="form-control"    placeholder="Enter Home Town">
+      
+
+
+      
+      
+      </div>
+      <input type="submit" id="subbuton" class="btn btn-outline-primary" value="Submit">
+    </form>
+
+    
+    <div class="alert alert-info"  *ngIf="showSuccessMessage">
+      Submitted successfully.
+    </div>
+  </div>
+
+
+  <div class="col-lg-12">
+    <app-user-list></app-user-list>
+  </div>
+
+
+</div>
